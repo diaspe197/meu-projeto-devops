@@ -1,4 +1,4 @@
-name:  Alerta para o Discord # tentativa forçada
+name: Alerta para o Discord
 
 on:
   push:
@@ -9,8 +9,9 @@ jobs:
   alerta-discord:
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar alerta para o Discord
-        uses: Ilshidur/action-discord@master
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "Um novo push foi feito no repositório!\n Autor: ${{ github.actor }}\n Branch: ${{ github.ref }}\n Repositório: ${{ github.repository }}"
+      - name: Enviar alerta para o Discord via curl
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": \"📢 Novo push no repositório!\n👤 Autor: ${{ github.actor }}\n📂 Repositório: ${{ github.repository }}\n🌿 Branch: ${{ github.ref }}\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
