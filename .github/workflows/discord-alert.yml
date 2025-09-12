@@ -13,8 +13,4 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
-              Um novo push foi feito no repositório!
-              Autor: ${{ github.actor }}
-              Branch: ${{ github.ref }}
-              Repositório: ${{ github.repository }}
+          message: "Um novo push foi feito no repositório!\n Autor: ${{ github.actor }}\n Branch: ${{ github.ref }}\n Repositório: ${{ github.repository }}"
