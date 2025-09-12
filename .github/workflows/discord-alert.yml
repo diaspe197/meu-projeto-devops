@@ -13,5 +13,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"📢 Novo push no repositório!\n👤 Autor: ${{ github.actor }}\n📂 Repositório: ${{ github.repository }}\n🌿 Branch: ${{ github.ref }}\"}" \
+               -d "{\"content\": \"Novo push no repositório!\n👤 Autor: ${{ github.actor }}\nRepositório: ${{ github.repository }}\nBranch: ${{ github.ref }}\"}" \
                ${{ secrets.DISCORD_WEBHOOK }}
